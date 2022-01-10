@@ -26,22 +26,17 @@ class ListaProblemasViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "vaiParaCriacaoEdicao" {
-            print("Cria problema")
-        } else if segue.identifier == "vaiParaDetalhe" {
-            print("Detalha problema")
+        if segue.identifier == "vaiParaDetalhe" {
             guard let controller = segue.destination as? DetalhaProblemaViewController else {return}
             controller.problem = sender as? Problem
         }
     }
 
     @IBAction func criarProblema(_ sender: Any) {
-        print("Button pressed")
         performSegue(withIdentifier: "vaiParaCriacaoEdicao", sender: nil)
     }
     
     private func loadProblems() {
-        print("Load started")
         let fetchRequest : NSFetchRequest<Problem> = Problem.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "nome", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -50,7 +45,6 @@ class ListaProblemasViewController: UIViewController {
         
         fetchedResultController.delegate = self
         try? fetchedResultController.performFetch()
-        print("Load finished")
     }
 }
 
@@ -71,6 +65,13 @@ extension ListaProblemasViewController : UITableViewDataSource {
 extension ListaProblemasViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "vaiParaDetalhe", sender:fetchedResultController.object(at: indexPath))
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            context.delete(fetchedResultController.object(at: indexPath))
+            try? context.save()
+        }
     }
 }
 

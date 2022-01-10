@@ -28,8 +28,6 @@ class CriaProblemaViewController: UIViewController {
         
         if let problem = problem {
             setWidgetsValues(problem: problem)
-        } else {
-            
         }
     }
 
