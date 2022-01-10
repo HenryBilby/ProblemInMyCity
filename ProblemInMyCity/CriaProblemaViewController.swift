@@ -44,6 +44,7 @@ class CriaProblemaViewController: UIViewController {
         problem.endereco = textFieldEndereco.text
         problem.descricao = textFieldDescricao.text
         problem.foto = imageViewFoto.image?.pngData()
+        problem.data = getTodayDate()
         
         try? context.save()
         
@@ -102,6 +103,14 @@ class CriaProblemaViewController: UIViewController {
         if let image = problem.foto {
             imageViewFoto.image = UIImage(data: image)
         }
+    }
+    
+    private func getTodayDate() -> String{
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "d MMM, h:mm a"
+        let formattedDate = format.string(from: date)
+        return formattedDate
     }
 }
 

@@ -68,16 +68,16 @@
 			children = (
 				E08CD531278A871400E905A8 /* AppDelegate.swift */,
 				E08CD533278A871400E905A8 /* SceneDelegate.swift */,
+				E08CD54E278B30F400E905A8 /* ProblemaTableViewCell.swift */,
 				E08CD535278A871400E905A8 /* ListaProblemasViewController.swift */,
+				E08CD54A278B292E00E905A8 /* DetalhaProblemaViewController.swift */,
+				E08CD54C278B29B300E905A8 /* CriaProblemaViewController.swift */,
 				E08CD537278A871400E905A8 /* Main.storyboard */,
 				E08CD53D278A871800E905A8 /* Assets.xcassets */,
 				E08CD53F278A871800E905A8 /* LaunchScreen.storyboard */,
 				E08CD542278A871800E905A8 /* Info.plist */,
 				E08CD53A278A871400E905A8 /* ProblemInMyCity.xcdatamodeld */,
 				E08CD548278B23FA00E905A8 /* UIViewController+Context.swift */,
-				E08CD54A278B292E00E905A8 /* DetalhaProblemaViewController.swift */,
-				E08CD54C278B29B300E905A8 /* CriaProblemaViewController.swift */,
-				E08CD54E278B30F400E905A8 /* ProblemaTableViewCell.swift */,
 			);
 			path = ProblemInMyCity;
 			sourceTree = "<group>";

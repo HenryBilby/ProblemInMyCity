@@ -15,7 +15,7 @@ class ProblemaTableViewCell: UITableViewCell {
     
     func setup(problem : Problem) {
         labelNome.text = problem.nome
-        labelEndereco.text = problem.endereco
+        labelEndereco.text = problem.data
         if let foto = problem.foto {
             imageViewProblema.image = UIImage(data: foto)
         }
