@@ -30,6 +30,10 @@ class CriaProblemaViewController: UIViewController {
             setWidgetsValues(problem: problem)
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 
     @IBAction func salvarPressed(_ sender: Any) {
         if !isEditProblem() {
